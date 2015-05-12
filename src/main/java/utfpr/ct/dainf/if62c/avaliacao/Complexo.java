@@ -16,24 +16,43 @@ public class Complexo {
     }
 
     public Complexo(double real, double img) {
-        // completar a implementação
+        this.real = real;
+        this.img = img;
     }
 
     // implementar getReal()
+    public double getReal(){
+        return real;
+    }
 
     // implementar getImg()
+    public double getImg(){
+        return img;
+    }
 
     public Complexo soma(Complexo c) {
         return new Complexo(real + c.real, img + c.img);
     }
     
     // implementar sub(Complexo)
+    public Complexo sub(Complexo c){
+        return new Complexo(real - c.real, img - c.img);
+    }
 
     // implementar prod(double)
+    public Complexo prod(double r){
+        return new Complexo(real*r, img*r);
+    }
 
     // implementar prod(Complexo)
+    public Complexo prod(Complexo c){
+        return new Complexo(real*c.real - img*c.img, img*c.real + real*c.img);
+    }
     
     // implementar div(Complexo)
+    public Complexo div(Complexo c){
+        return new Complexo((real*c.real+img*c.img)/(c.real*c.real+c.img*c.img),(c.real*img-real*c.img)/(c.real*c.real+c.img*c.img));
+    }
     
     // implementar sqrt()
     public Complexo[] sqrt() {
