@@ -56,9 +56,35 @@ public class Complexo {
     
     // implementar sqrt()
     public Complexo[] sqrt() {
+        Complexo[] raizes = new Complexo[2];
+        
+        double fi = 0;
+        
+        if(real > 0){
+            fi = 1/(Math.tan(img/real));
+        }
+        else if(real < 0){
+            fi = (1/(Math.tan(img/real))) + Math.PI;
+        }
+        else if(real == 0 && img == 0){
+            fi = 0;
+        }
+        else if(real == 0 && img > 0){
+            fi = Math.PI/2;
+        }
+        else if(real == 0 && img < 0){
+            fi = 3*Math.PI/2;
+        }
+        
+        double ro = Math.sqrt(real*real+img*img);
+        double fi1 = fi/2;
+        double fi2 = (fi/2) + Math.PI;
         // completar implementação
         // retornar o vetor contendo as raízes
-        return null;
+        raizes[0] = new Complexo(ro*Math.cos(fi1),ro*Math.sin(fi1));
+        raizes[1] = new Complexo(ro*Math.cos(fi2),ro*Math.sin(fi2));
+        
+        return raizes;
     }
 
     @Override
